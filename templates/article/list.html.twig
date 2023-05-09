@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+    liste des articles
+    <ul>
+        {% for article in articles %}
+            <li>
+                <a href="{{ path('single_article', {'slug': article.slug}) }}">{{ article.titre }}</a>
+            </li>
+        {% endfor %}
+{% endblock %}

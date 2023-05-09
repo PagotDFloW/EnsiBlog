@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Article</h1>
+
+    <table class=\"table\">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ article.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Publie</th>
+                <td>{{ article.isPublished }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{% if article.dateCreation %}{{ article.dateCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{% if article.dateModification %}{{ article.dateModification|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ article.auteur.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('list_article') }}">back to list</a>
+{% endblock %}
